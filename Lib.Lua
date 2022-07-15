@@ -1,5 +1,5 @@
 
-local BadHub = {}
+local CFAHub = {}
 
 warn("Preparing UI...")
 
@@ -94,7 +94,7 @@ function Animate:CreateGradient(object)
     UIGradient.Parent = object
 end
 
-function BadHub:DraggingEnabled(frame, parent)
+function CFAHub:DraggingEnabled(frame, parent)
     parent = parent or frame
 
     local dragging = false
@@ -128,10 +128,10 @@ function BadHub:DraggingEnabled(frame, parent)
     end)
 end
 
-local GuiName = "BadHubPremium2022"
+local GuiName = "CFAHubPremium2022"
 
-function BadHub:CreateWindow(title, gameName, intro)
-    title = title or "<font color=\"#1CB2F5\">BadHub Premium</font>"
+function CFAHub:CreateWindow(title, gameName, intro)
+    title = title or "<font color=\"#1CB2F5\">CFA Hub Premium</font>"
     gameName = gameName or "N/A"
 
     for _, v in pairs(CoreGui:GetChildren()) do
@@ -154,18 +154,18 @@ function BadHub:CreateWindow(title, gameName, intro)
         Logo = "rbxassetid://1278869460"
     }
 
-    table.insert(BadHub, title)
+    table.insert(CFAHub, title)
 
-    function BadHub:SetTheme(theme, color3)
+    function CFAHub:SetTheme(theme, color3)
         themes[theme] = color3
     end
 
-    local BadHubGui = Instance.new("ScreenGui")
+    local CFAHubGui = Instance.new("ScreenGui")
 
     if intro == true then
         local Logo = Instance.new("ImageLabel")
         
-        Logo.Parent = BadHubGui
+        Logo.Parent = CFAHubGui
         Logo.AnchorPoint = Vector2.new(0.5, 0.5)
         Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Logo.BackgroundTransparency = 1.000
@@ -221,7 +221,7 @@ function BadHub:CreateWindow(title, gameName, intro)
     UIListLayout.Padding = UDim.new(0, 8)
     
     CurrentAlert.Name = "NotiContainer"
-    CurrentAlert.Parent = BadHubGui
+    CurrentAlert.Parent = CFAHubGui
     CurrentAlert.AnchorPoint = Vector2.new(1, 1)
     CurrentAlert.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     CurrentAlert.BackgroundTransparency = 1.000
@@ -229,7 +229,7 @@ function BadHub:CreateWindow(title, gameName, intro)
     CurrentAlert.Size = UDim2.new(1, -10, 1, -10)
     CurrentAlert.ZIndex = 9
 
-    function BadHub:AddNoti(header, message, duration, buttonEnable, callback)
+    function CFAHub:AddNoti(header, message, duration, buttonEnable, callback)
         header = header or "Announcement"
         message = message or "Nil"
         duration = duration or 120
@@ -444,7 +444,7 @@ function BadHub:CreateWindow(title, gameName, intro)
         end)
     end -- final
 
-    function BadHub:ToggleUI()
+    function CFAHub:ToggleUI()
         if Container.Visible == true then
             Utility:TweenObject(UIScale, {Scale = 0.95}, 0.25)
             wait(0.25)
@@ -455,14 +455,14 @@ function BadHub:CreateWindow(title, gameName, intro)
         end
     end
 
-    BadHub:DraggingEnabled(Header, Container)
+    CFAHub:DraggingEnabled(Header, Container)
 
-    BadHubGui.Name = GuiName
-    BadHubGui.Parent = CoreGui
-    BadHubGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    CFAHubGui.Name = GuiName
+    CFAHubGui.Parent = CoreGui
+    CFAHubGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
     Container.Name = "Container"
-    Container.Parent = BadHubbGui
+    Container.Parent = CFAHubGui
     Container.AnchorPoint = Vector2.new(0.5, 0.5)
     Container.BackgroundColor3 = themes.Container
     Objects[Container] = "Container"
@@ -2270,4 +2270,4 @@ function BadHub:CreateWindow(title, gameName, intro)
     return Tabs
 end
 
-return BadHub
+return CFAHub
